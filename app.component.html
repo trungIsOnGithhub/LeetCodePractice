@@ -1,0 +1,29 @@
+<div class="zoom-container">
+  <button (click)="scrollToToday()" class="today">{{ 'today'}}</button>
+
+  <!-- <div class="zoom-group">
+    <button (click)="zoomOut()" class="reduce">-</button>
+
+    <button (click)="zoomIn()" class="increase">+</button>
+  </div> -->
+
+  <button (click)="viewByDay()" class="center">View By Days</button>
+  <button (click)="viewByMonth()" class="center">View By Months</button>
+
+  <span class="mode">View mode: {{getViewModeName()}}</span>
+</div>
+
+<div class="timeline-container">
+  <timeline-calendar
+    #timeline
+    [showDateMarket]="true"
+    [isPanelResizable]="true"
+    [panelWidth]="500"
+    [maxPanelWidth]="200"
+    [headerHeight]="70"
+    [items]="items"
+    [panelLabel]="'Leave Request Timeline'"
+    [zooms]="zoomViewModes"
+    (itemTimeChanged)="onItemTimeChanged($event)"
+  ></timeline-calendar>
+</div>
